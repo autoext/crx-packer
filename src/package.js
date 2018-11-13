@@ -19,9 +19,7 @@ const run = (...args) => spawn(...args).on('error', (e) => {
 const isWin32 = os.platform() === 'win32';
 const RELEASE_DIR = resolve('../release');
 
-module.exports = (SRC_DIR, PEM_DIR) => {
-  const manifest = require('../src/manifest');
-
+module.exports = (SRC_DIR, PEM_DIR, manifest) => {
   const { name } = manifest;
   const { version } = manifest;
 

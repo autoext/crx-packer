@@ -4,13 +4,12 @@
   "description": "crx 本地打包工具",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git@gitee.com:g8up/crx-local-packer.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "g8up",
   "license": "ISC"
 }
