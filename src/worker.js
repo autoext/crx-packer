@@ -12,7 +12,7 @@ const del = (dir) => {
 const rename = (oldPath, newPath) => {
   if (fs.existsSync(oldPath)) {
     fs.renameSync(oldPath, newPath);
-    console.warn(`[del]已命名：${newPath}`);
+    console.warn(`[ren]已命名：${newPath}`);
   } else {
     console.warn(`[ren]未找到文件：${oldPath}`);
   }

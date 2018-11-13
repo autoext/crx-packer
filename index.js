@@ -4,7 +4,7 @@
 const os = require('os');
 const path = require('path');
 const { spawn } = require('child_process');
-const Worker = require('./worker');
+const Worker = require('./src/worker');
 
 const resolve = dir => (path.resolve(__dirname, dir));
 
