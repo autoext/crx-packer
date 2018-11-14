@@ -20,7 +20,7 @@ const resolve = dir => (path.resolve(__dirname, dir));
 
 const SRC_FOLDER_NAME = 'src';
 const SRC_DIR = resolve(`../${SRC_FOLDER_NAME}`);
-const PEM_DIR = resolve('../src.pem');
+const RELEASE_DIR = resolve('../release');
 
-CrxPaker(SRC_DIR, PEM_DIR, manifest );
+CrxPaker(SRC_DIR, PEM_DIR, RELEASE_DIR, manifest );
 ```
