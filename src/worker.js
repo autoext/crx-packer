@@ -27,10 +27,9 @@ class Worker {
   }) {
     this.srcDir = srcDir;
     this.releaseDir = releaseDir;
-    // this.releaseName = releaseName;
     this.packer = packer;
 
-    this.releaseFile = `${this.releaseDir}/${releaseName}`;
+    this.releaseFile = path.join(this.releaseDir, releaseName);
   }
 
   del() {
