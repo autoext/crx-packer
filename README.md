@@ -2,7 +2,7 @@
 > crx 本地打包工具
 
 ## Install
-> npm i -D git+ssh://git@gitee.com:g8up/crx-local-packer.git#v1.0.0
+> npm i -D git+ssh://git@gitee.com:g8up/crx-local-packer.git#v1.1.0
 
 ## Usage
 ```js
@@ -25,3 +25,13 @@ const RELEASE_DIR = resolve('../release');
 
 CrxPaker(SRC_DIR, PEM_DIR, RELEASE_DIR, manifest );
 ```
+
+- regist npm script
+```
+scripts:{
+    "pack": "node build/package.js",
+}
+```
+
+- run
+> npm run pack
