@@ -3,18 +3,32 @@ const fs = require('fs');
 const del = (dir) => {
   if (fs.existsSync(dir)) {
     fs.unlinkSync(dir);
-    console.warn(`[del]已删除：${dir}`);
-  } else {
-    console.warn(`[del]未找到文件：${dir}`);
+    return {
+      error: false,
+      message: `[del]已删除：${dir}`,
+    };
+  }
+  else {
+    return {
+      error: true,
+      message: `[del]未找到文件：${dir}`,
+    };
   }
 };
 
 const rename = (oldPath, newPath) => {
   if (fs.existsSync(oldPath)) {
     fs.renameSync(oldPath, newPath);
-    console.warn(`[ren]已命名：${newPath}`);
-  } else {
-    console.warn(`[ren]未找到文件：${oldPath}`);
+    return {
+      error: false,
+      message: `[ren]已命名：${newPath}`,
+    };
+  }
+  else {
+    return {
+      error: true,
+      message: `[ren]未找到文件：${oldPath}`,
+    };
   }
 };
 
@@ -48,7 +62,13 @@ class Worker {
   }
 
   run() {
-    this.del();
+    const {
+      error,
+      message,
+    } = this.del();
+    if( error ){
+      console.warn( message );
+    }
     this.pack().on('close', () => {
       this.rename();
     });
