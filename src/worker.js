@@ -47,7 +47,7 @@ class Worker {
   }
 
   del() {
-    del(this.releaseFile);
+    return del(this.releaseFile);
   }
 
   pack() {
@@ -58,7 +58,7 @@ class Worker {
     if (!fs.existsSync(this.releaseDir)) {
       fs.mkdirSync(this.releaseDir);
     }
-    rename(`${this.srcDir}.crx`, this.releaseFile);
+    return rename(`${this.srcDir}.crx`, this.releaseFile);
   }
 
   run() {
@@ -70,7 +70,13 @@ class Worker {
       console.warn( message );
     }
     this.pack().on('close', () => {
-      this.rename();
+      const {
+        error,
+        message,
+      } = this.rename();
+      if( !error ) {
+        console.log( message );
+      }
     });
   }
 }

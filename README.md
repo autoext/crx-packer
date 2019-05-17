@@ -2,7 +2,7 @@
 > crx 本地打包工具
 
 ## Install
-> npm i -D git+ssh://git@gitee.com:g8up/crx-local-packer.git#v1.1.0
+> npm i -D git+ssh://git@gitee.com:g8up/crx-local-packer.git#v1.1.1
 
 ## Usage
 ```js
