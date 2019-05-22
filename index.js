@@ -25,6 +25,7 @@ module.exports = (SRC_DIR, PEM_DIR, RELEASE_DIR, manifest) => {
     version,
   } = manifest;
 
+  // crxmake.exe dist release --key-file=dist.pem
   const packerWin = () => run(CLI, [
     `${SRC_DIR}`,
     `--key-file=${PEM_DIR}`,

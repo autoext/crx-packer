@@ -9,18 +9,18 @@
 /**
  * build/package.js
  * 打包 crx
- * npm i -D git+ssh://git@gitee.com:g8up/crx-local-packer.git#v1.1.0
+ * npm i -D git+ssh://git@gitee.com:g8up/crx-local-packer.git#v1.1.1
  */
 const path = require('path');
 const CrxPaker = require('crx-local-packer');
 
-const manifest = require('../src/manifest');
+const manifest = require('../dist/manifest');
 
 const resolve = dir => (path.resolve(__dirname, dir));
 
-const SRC_FOLDER_NAME = 'src';
+const SRC_FOLDER_NAME = 'dist';
 const SRC_DIR = resolve(`../${SRC_FOLDER_NAME}`);
-const PEM_DIR = resolve('../src.pem');
+const PEM_DIR = resolve('../dist.pem');
 const RELEASE_DIR = resolve('../release');
 
 CrxPaker(SRC_DIR, PEM_DIR, RELEASE_DIR, manifest );
@@ -35,3 +35,6 @@ scripts:{
 
 - run
 > npm run pack
+
+# Doc
+- https://github.com/mcuadros/go-crxmake
