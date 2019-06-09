@@ -13,4 +13,7 @@ const PEM_DIR = resolver('./example/dist.pem');
 
 const RELEASE_DIR = resolver('./release');
 
-pack(SRC_DIR, PEM_DIR, RELEASE_DIR, manifest);
+pack(SRC_DIR, PEM_DIR, RELEASE_DIR, manifest)
+.then((data)=>{
+  console.log(`releaseFile`, data.releaseFile);
+});

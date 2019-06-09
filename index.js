@@ -4,6 +4,7 @@
  */
 
 const fs = require("fs");
+const path = require('path');
 const ChromeExtension = require("crx");
 const util = require('./src/util');
 
@@ -19,11 +20,19 @@ module.exports = (SRC_DIR, PEM_DIR, RELEASE_DIR, manifest) => {
     privateKey: fs.readFileSync(PEM_DIR),
   });
 
-  crx.load(SRC_DIR)
+  const releaseFile = path.resolve(RELEASE_DIR, releaseName);
+
+  return crx.load(SRC_DIR)
     .then(crx => crx.pack())
     .then(crxBuffer => {
-      fs.writeFileSync(`${RELEASE_DIR}/${releaseName}`, crxBuffer);
-    }).catch(err => {
+      fs.writeFileSync(releaseFile, crxBuffer);
+    })
+    .then(()=>{
+      return {
+        releaseFile,
+      };
+    })
+    .catch(err => {
       console.error(err);
     });
 };
