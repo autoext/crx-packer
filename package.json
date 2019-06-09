@@ -4,6 +4,7 @@
   "description": "crx 本地打包工具",
   "main": "index.js",
   "scripts": {
+    "test": "node ./test/pack.js"
   },
   "repository": {
     "type": "git",

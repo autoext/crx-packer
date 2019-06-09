@@ -1,0 +1,29 @@
+{
+  "name": "S神器",
+  "version": "0.0.1",
+  "description": "打包工具测试 Demo",
+  "background": {
+    "scripts": ["js/background.js"]
+  },
+  "content_scripts": [{
+    "js": ["js/content.js"],
+    "run_at": "document_end",
+    "matches": ["*://*/*"]
+  }],
+  "browser_action": {
+    "default_icon": "asset/logo.png",
+    "default_title": "神器",
+    "default_popup": "popup.html"
+  },
+  "options_page": "option.html",
+  "icons": {
+		"128": "asset/logo.png",
+		"64": "asset/logo.png",
+		"48": "asset/logo.png"
+	},
+  "permissions": [
+    "tabs"
+  ],
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+  "manifest_version": 2
+}
